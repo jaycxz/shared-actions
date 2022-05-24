@@ -2,6 +2,10 @@ name: CI Checks
 
 on:
   workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
 
 jobs:
   test:
@@ -12,4 +16,4 @@ jobs:
         with:
           fetch-depth: 0
       - name: test command
-        run: echo "TESTING!!!"
+        run: echo ${{ inputs.username }}
